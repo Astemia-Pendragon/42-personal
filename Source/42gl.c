@@ -3430,8 +3430,8 @@ void DrawOrrery(void)
                   RotateR2L(W->CNH);
                   if (E->ecc < 1.0) {
                      glBegin(GL_LINE_LOOP);
-                        t1 = E->tp - 0.5*E->Period;
-                        t2 = E->tp + 0.5*E->Period;
+                        t1 = E->tp;
+                        t2 = E->tp+TwoPi/E->MeanMotion;
                         dt = 0.002*(t2-t1);
                         for(t=t1;t<t2;t+=dt) {
                            Eph2RV(E->mu,E->SLR,E->ecc,E->inc,E->RAAN,E->ArgP,
