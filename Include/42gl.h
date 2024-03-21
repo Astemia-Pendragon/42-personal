@@ -170,6 +170,7 @@ EXTERN struct WidgetType OrreryWidget;
 EXTERN long NumSphereWindowMenuLines;
 EXTERN long SphereWindowWidth;
 EXTERN long SphereWindowHeight;
+EXTERN char SphereWindowTitle[80];
 EXTERN struct WidgetType CenterWidget;
 EXTERN struct WidgetType SphereShowWidget;
 EXTERN struct WidgetType VectorsWidget;

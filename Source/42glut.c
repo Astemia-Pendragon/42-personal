@@ -1118,14 +1118,14 @@ void InitOrreryWindow(void)
       O = &Orrery;
 
 /* .. Migrate to input file */
-      OrreryWidth = 512;
-      OrreryHeight = 512;
-      O->Zoom = 26;
+      /*OrreryWidth = 512;*/
+      OrreryHeight = OrreryWidth;
+      O->Zoom = 11;
       O->Regime = ORB_CENTRAL;
-      O->World = SOL;
+      O->World = EARTH;
       O->LagSys = SUNEARTH;
       O->LP = LAGPT_L1;
-      strcpy(OrreryTitle,"42 Orrery");
+      /*strcpy(OrreryTitle,"42 Orrery");*/
 
       for(i=0;i<3;i++) {
          O->PosN[i] = 0.0;
@@ -1199,10 +1199,10 @@ void InitSphereWindow(void)
          widget must be changed in InitSphereWidgets, and new entries
          are added in DrawSphereHUD                                  */
 
-      SphereWindowWidth = 512;
-      SphereWindowHeight = 256 + 16*(NumSphereWindowMenuLines + 2);
+      /*SphereWindowWidth = 512;*/
+      SphereWindowHeight = SphereWindowWidth/2 + 16*(NumSphereWindowMenuLines + 2);
       glutInitWindowSize(SphereWindowWidth,SphereWindowHeight);
-      SphereWindow = glutCreateWindow("42 Unit Sphere Viewer");
+      SphereWindow = glutCreateWindow(SphereWindowTitle);
       glutSetWindow(SphereWindow);
       glutPositionWindow(CamWidth+MapWidth,30);
 
