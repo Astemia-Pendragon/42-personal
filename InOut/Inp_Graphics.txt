@@ -1,8 +1,8 @@
 <<<<<<<<<<<<<<<<  42 Graphics Configuration File  >>>>>>>>>>>>>>>>>>>
-1.0                               !  GL Output Interval [sec]
+1.0                                !  GL Output Interval [sec]
 Skymap09.txt                       !  Star Catalog File Name
 TRUE                               !  Map Window Exists
-FALSE                               !  Orrery Window Exists
+TRUE                               !  Orrery Window Exists
 TRUE                               !  Unit Sphere Window Exists
 ******************************* POV *********************************
 FALSE                              !  Pause at Startup
@@ -18,7 +18,7 @@ NEG_Z                              !  Up Axis
 0.0  0.0  0.0                      !  POV Position in Host [m]
 FRONT                              !  Initial POV View (FRONT, FRONT_RIGHT, etc)
 ******************************* CAM *********************************
-"42 Cam"                           ! Cam Title [delimited by "]
+"SAT Cam"                           ! Cam Title [delimited by "]
 800  800                           !  Width, Height [pixels]
 5.0E-5                             !  Mouse Scale Factor
 1.8                                !  Display's Gamma Exponent (1.8-4.0)
@@ -42,13 +42,19 @@ FALSE "FSW Vectors"                !  Show FSW Vectors
 TRUE  "Milky Way"                  !  Show Milky Way
 FALSE "Fermi Sky"                  !  Show Fermi Sky
 ******************************* MAP *********************************
-"42 Map"                           ! Map Title [delimited by "]
+"SAT Map"                           ! Map Title [delimited by "]
 512  256                           !  Width, Height [pixels]
 ************************** MAP Show Menu ****************************
 TRUE  "Clock"                      !  Show Clock
 TRUE  "Tlm Clock"                  !  Show Clock
 FALSE "Credits"                    !  Show Credits
 TRUE  "Night"                      !  Show Night
+******************************* ORRERY ******************************
+"SAT ORRERY"                       ! Map Title [delimited by "]
+512                                !  Width [pixels]
+************************ UNIT SPHERE WINDOW *************************
+"SAT UNIT SPHERE WINDOW"           ! Map Title [delimited by "]
+512                                !  Width [pixels]
 ********************* Unit Sphere Show Menu *************************
 TRUE                               !  Show Major Constellations
 TRUE                               !  Show Zodiac Constellations

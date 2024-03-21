@@ -5355,6 +5355,16 @@ void ReadGraphicsInpFile(void)
             MapShowLabel[i],junk,&newline);
          MapShow[i] = DecodeString(response);
       }
+/* .. Orrery Parameters */
+      fscanf(infile,"%[^\n] %[\n]",junk,&newline);
+      fscanf(infile,"\"%[^\"]\" %[^\n] %[\n]",OrreryTitle,junk,&newline);
+      fscanf(infile,"%ld %[^\n] %[\n]",
+         &OrreryWidth,junk,&newline);
+/* .. Sphere Window Parameters */
+      fscanf(infile,"%[^\n] %[\n]",junk,&newline);
+      fscanf(infile,"\"%[^\"]\" %[^\n] %[\n]",SphereWindowTitle,junk,&newline);
+      fscanf(infile,"%ld %[^\n] %[\n]",
+         &SphereWindowWidth,junk,&newline);
 /* .. Sphere Window */
       fscanf(infile,"%[^\n] %[\n]",junk,&newline);
       fscanf(infile,"%s %[^\n] %[\n]",response,junk,&newline);
