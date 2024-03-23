@@ -49,6 +49,12 @@ TRUE  "Clock"                      !  Show Clock
 TRUE  "Tlm Clock"                  !  Show Clock
 FALSE "Credits"                    !  Show Credits
 TRUE  "Night"                      !  Show Night
+******************************* ORRERY ******************************
+"SAT ORRERY"                       ! Map Title [delimited by "]
+512                                !  Width [pixels]
+************************ UNIT SPHERE WINDOW *************************
+"SAT UNIT SPHERE WINDOW"           ! Map Title [delimited by "]
+512                                !  Width [pixels]
 ********************* Unit Sphere Show Menu *************************
 TRUE                               !  Show Major Constellations
 TRUE                               !  Show Zodiac Constellations
