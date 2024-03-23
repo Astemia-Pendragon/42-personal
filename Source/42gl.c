@@ -3138,6 +3138,7 @@ void DrawOrrery(void)
       GLfloat WorldOrbitColor[3] = {0.576,0.439,0.859};
       GLfloat MinorBodyOrbitColor[3] = {0.45,0.22,0.42};
       GLfloat RefOrbColor[4] = {0.251,0.878,0.816,1.0};
+      GLfloat RealOrbColor[4] = {1.0, 0.0,1.0,1.0};
       GLfloat ScColor[3] = {1.0,0.549,0.0};
       GLubyte ScGlyph[8] = {0x18,0x24,0x42,0x81,0x81,0x42,0x24,0x18};
       GLfloat LPLineColor[3] = {0.729,0.333,0.827};
@@ -3530,12 +3531,12 @@ void DrawOrrery(void)
       }
 
 /* .. Draw Spacecraft */
-      glColor3fv(ScColor);
       for(Isc=0;Isc<Nsc;Isc++) {
          if(SC[Isc].Exists) {
             E = &Orb[SC[Isc].RefOrb];
             W = &World[E->World];
             glPushMatrix();
+            glColor3fv(ScColor);
             glTranslated(W->PosH[0],W->PosH[1],W->PosH[2]);
             RotateR2L(W->CNH);
             glRasterPos3dv(SC[Isc].PosN);
@@ -3552,15 +3553,12 @@ void DrawOrrery(void)
                      RV02RV(E->mu,SC[Isc].PosN,SC[Isc].VelN,anomdumb,r,vdumb);
                      anomdumb += E->MeanMotion*dt;
                      if (r[2] < 0.0 && sqrt(r[0]*r[0]+r[1]*r[1]) < W->rad)
-                        RefOrbColor[3] = 0.0;
+                        RealOrbColor[3] = 0.0;
                      else
                      {
-                        RefOrbColor[3] = 0.0;
-                        RefOrbColor[2] = WorldOrbitColor[1];
-                        RefOrbColor[1] = WorldOrbitColor[0];
-                        RefOrbColor[0] = WorldOrbitColor[2];
+                        RealOrbColor[3] = 1.0;
                      }
-                     glColor4fv(RefOrbColor);
+                     glColor4fv(RealOrbColor);
                      glVertex3dv(r);
                   }
                glEnd();
