@@ -3430,8 +3430,8 @@ void DrawOrrery(void)
                   RotateR2L(W->CNH);
                   if (E->ecc < 1.0) {
                      glBegin(GL_LINE_LOOP);
-                        t1 = E->tp - 0.5*E->Period;
-                        t2 = E->tp + 0.5*E->Period;
+                        t1 = E->tp;
+                        t2 = E->tp+TwoPi/E->MeanMotion;
                         dt = 0.002*(t2-t1);
                         for(t=t1;t<t2;t+=dt) {
                            Eph2RV(E->mu,E->SLR,E->ecc,E->inc,E->RAAN,E->ArgP,
@@ -3541,6 +3541,30 @@ void DrawOrrery(void)
             glRasterPos3dv(SC[Isc].PosN);
             glBitmap(8,8,4.0,4.0,5.0,-13.0,ScGlyph);
             DrawBitmapString(GLUT_BITMAP_8_BY_13,SC[Isc].Label);
+            if (E->ecc < 1.0) {
+               glBegin(GL_LINE_LOOP);
+                  t1 = E->tp;
+                  t2 = E->tp+TwoPi/E->MeanMotion;
+                  dt = 0.002*(t2-t1);
+                  double anomdumb, vdumb[3];
+                  anomdumb = E->anom;
+                  for(t=t1;t<t2;t+=dt) {
+                     RV02RV(E->mu,SC[Isc].PosN,SC[Isc].VelN,anomdumb,r,vdumb);
+                     anomdumb += E->MeanMotion*dt;
+                     if (r[2] < 0.0 && sqrt(r[0]*r[0]+r[1]*r[1]) < W->rad)
+                        RefOrbColor[3] = 0.0;
+                     else
+                     {
+                        RefOrbColor[3] = 0.0;
+                        RefOrbColor[2] = WorldOrbitColor[1];
+                        RefOrbColor[1] = WorldOrbitColor[0];
+                        RefOrbColor[0] = WorldOrbitColor[2];
+                     }
+                     glColor4fv(RefOrbColor);
+                     glVertex3dv(r);
+                  }
+               glEnd();
+            }
             glPopMatrix();
          }
       }
